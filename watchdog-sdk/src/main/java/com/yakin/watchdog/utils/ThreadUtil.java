@@ -1,5 +1,9 @@
 package com.yakin.watchdog.utils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+
 public final class ThreadUtil {
 
     public static Thread getThreadById(long tid) {
@@ -17,21 +21,11 @@ public final class ThreadUtil {
         return Thread.currentThread();
     }
 
-    public static String getStackTrace(Throwable throwable, Class clazz) {
-        StringBuilder stackTraceBuilder = new StringBuilder();
-        StackTraceElement[] stackTraceElements = throwable.getStackTrace();
-        for (StackTraceElement stackTrace: stackTraceElements) {
-            String className = stackTrace.getClassName();
-            if (!className.equals(clazz.getName())) {
-                stackTraceBuilder.append(stackTrace.getClassName());
-                stackTraceBuilder.append(".");
-                stackTraceBuilder.append(stackTrace.getMethodName());
-                stackTraceBuilder.append("(");
-                stackTraceBuilder.append(stackTrace.getLineNumber());
-                stackTraceBuilder.append(")");
-                stackTraceBuilder.append("\n");
-            }
-        }
-        return stackTraceBuilder.toString();
+    public static String getStackTrace(Throwable throwable) {
+        Writer writer = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(writer);
+        throwable.printStackTrace(printWriter);
+        printWriter.close();
+        return writer.toString();
     }
 }

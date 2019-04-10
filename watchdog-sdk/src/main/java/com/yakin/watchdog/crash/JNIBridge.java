@@ -21,10 +21,10 @@ class JNIBridge {
         StringBuilder stackTraceBuilder = new StringBuilder();
         stackTraceBuilder.append("\nThread: ").append(thread.getName());
         stackTraceBuilder.append("\nReason: ").append(reason);
-        stackTraceBuilder.append("\n===================Native StackTrace===================\n");
+        stackTraceBuilder.append("\n*** *** *** *** *** *** *** *** *** ***\n");
         stackTraceBuilder.append(stack);
-        stackTraceBuilder.append("\n===================Java StackTrace===================\n");
-        stackTraceBuilder.append(ThreadUtil.getStackTrace(new Throwable(), JNIBridge.class));
+        stackTraceBuilder.append("\n*** *** *** *** *** *** *** *** *** ***\n");
+        stackTraceBuilder.append(ThreadUtil.getStackTrace(new Throwable()));
         String stackTrace = stackTraceBuilder.toString();
         WatchDog.getLogger().e(stackTrace);
         if(catchHandler != null) {

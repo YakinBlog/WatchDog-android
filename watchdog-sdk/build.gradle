@@ -7,9 +7,6 @@ android {
         minSdkVersion android_minSdkVersion.toInteger()
         targetSdkVersion android_compileSdkVersion.toInteger()
 
-//        renderscriptTargetApi android_compileSdkVersion.toInteger()
-//        renderscriptSupportModeEnabled true
-
         consumerProguardFiles 'proguard-rules.txt'
 
         ndk {

@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yakin.watchdog.ui" >
+
+    <application>
+        <activity android:name=".CrashPanel"
+            android:process=":crash"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat"/>
+    </application>
+</manifest>

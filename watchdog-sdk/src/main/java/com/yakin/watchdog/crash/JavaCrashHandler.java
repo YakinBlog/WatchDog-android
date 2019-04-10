@@ -30,12 +30,12 @@ class JavaCrashHandler implements ICrashHandler, Thread.UncaughtExceptionHandler
         StringBuilder stackTraceBuilder = new StringBuilder();
         stackTraceBuilder.append("\nThread: ").append(t.getName());
         stackTraceBuilder.append("\nReason: ").append(e.getLocalizedMessage());
-        stackTraceBuilder.append("\n===================Java StackTrace===================\n");
-        stackTraceBuilder.append(ThreadUtil.getStackTrace(e, JavaCrashHandler.class));
+        stackTraceBuilder.append("\n*** *** *** *** *** *** *** *** *** ***\n");
+        stackTraceBuilder.append(ThreadUtil.getStackTrace(e));
         String stackTrace = stackTraceBuilder.toString();
         WatchDog.getLogger().e(e, stackTrace);
         if(catchHandler != null) {
-            catchHandler.onCatch(t.getId(), e.getLocalizedMessage(), stackTrace);
+            catchHandler.onCatch(t.getId(), e.getMessage(), stackTrace);
         }
         if(handler != null) {
             handler.uncaughtException(t, e);

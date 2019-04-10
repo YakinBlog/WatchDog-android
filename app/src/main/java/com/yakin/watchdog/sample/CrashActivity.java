@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yakin.watchdog.WatchDog;
-import com.yakin.watchdog.crash.ICatchHandler;
+import com.yakin.watchdog.ui.CrashPanel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,12 +21,7 @@ public class CrashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crash);
 
         stackLog = findViewById(R.id.stack_log);
-        WatchDog.getCrashHandler().registerHandler(new ICatchHandler() {
-            @Override
-            public void onCatch(long tid, String reason, String stackTrace) {
-                WatchDog.getLogger().e("onCatch1");
-            }
-        });
+        WatchDog.getCrashHandler().registerHandler(new CrashPanel());
     }
 
     public void onClick(View view) {

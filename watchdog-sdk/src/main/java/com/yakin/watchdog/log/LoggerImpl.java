@@ -1,5 +1,6 @@
 package com.yakin.watchdog.log;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.Locale;
@@ -12,7 +13,7 @@ public class LoggerImpl implements ILogger {
     @Override
     public void setPrintLog(int level, String tag) {
         this.level = level;
-        this.tag = tag;
+        this.tag = TextUtils.isEmpty(tag) ? "WatchDog" : tag;
     }
 
     @Override

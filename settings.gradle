@@ -1,1 +1,1 @@
-include ':app', ':watchdog-sdk'
+include ':app', ':watchdog-sdk', ':watchdog-ui'
