@@ -25,7 +25,7 @@ size_t capture_backtrace(intptr_t* buffer, size_t maxStackDeep) {
     return state.current - buffer;
 }
 
-void dump_backtrace(char *out, intptr_t* buffer, size_t count) {
+void handle_backtrace(char *out, intptr_t* buffer, size_t count) {
     for (size_t idx = 0; idx < count; ++idx) {
         intptr_t addr = buffer[idx];
         const char* symbol = "      ";
@@ -60,12 +60,10 @@ void dump_backtrace(char *out, intptr_t* buffer, size_t count) {
     }
 }
 
-char* get_backtrace(size_t maxLength, size_t maxDeep) {
-    char outBuffer[maxLength];
-    memset(outBuffer, 0, sizeof(outBuffer));
+void dump_backtrace(char* buffer, size_t maxDeep) {
+    memset(buffer, 0, sizeof(*buffer));
     intptr_t stackBuffer[maxDeep];
 
     size_t count = capture_backtrace(stackBuffer, maxDeep);
-    dump_backtrace(outBuffer, stackBuffer, count);
-    return outBuffer;
+    handle_backtrace(buffer, stackBuffer, count);
 }

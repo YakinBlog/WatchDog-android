@@ -6,7 +6,8 @@ jmethodID g_method;
 
 void sigaction_callback(int signal) {
     char *reason = strsignal(signal);
-    char *stack = get_backtrace(1024*5, 100);
+    char stack[1024];
+    dump_backtrace(stack, 100);
     LOGD("reason:%s\n backtrace:\n%s", reason, stack);
     g_env->CallVoidMethod(g_bridge, g_method, gettid(), g_env->NewStringUTF(reason), g_env->NewStringUTF(stack));
 }

@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-extern char* get_backtrace(size_t maxLength, size_t maxDeep);
+extern void dump_backtrace(char* buffer, size_t maxDeep);
 
 #ifdef __cplusplus
 }
