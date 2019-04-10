@@ -3,6 +3,7 @@
 
 #include <signal.h>
 #include <malloc.h>
+#include <string.h>
 
 #include "global_header.h"
 
