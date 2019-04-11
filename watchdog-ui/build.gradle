@@ -10,16 +10,8 @@ android {
 //        renderscriptTargetApi android_compileSdkVersion.toInteger()
 //        renderscriptSupportModeEnabled true
 
-        consumerProguardFiles 'proguard-rules.txt'
+        consumerProguardFiles 'proguard-rules.pro'
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
 }
 
 dependencies {
