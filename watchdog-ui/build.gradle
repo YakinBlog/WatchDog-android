@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion android_compileSdkVersion.toInteger()
+
+    defaultConfig {
+        minSdkVersion android_minSdkVersion.toInteger()
+        targetSdkVersion android_compileSdkVersion.toInteger()
+
+//        renderscriptTargetApi android_compileSdkVersion.toInteger()
+//        renderscriptSupportModeEnabled true
+
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:23.4.0"
+
+//    api project(':watchdog-sdk')
+    api 'com.yakin.support:watchdog:0.0.1'
+}
+
+//===============publish==================//
+ext {
+    groupId = 'com.yakin.support'
+    artifactId = 'watchdog-ui'
+    versionName = '0.0.1'
+    versionDescribe = 'Support Logger and CrashHandler' // 版本描述
+
+    licenses = [ 'Apache-2.0' ] // 仓库创建时选择的license, 不能随便写
+    websiteUrl = 'http://yakinblog.com' // 项目网址
+    issueUrl = 'https://github.com/YakinBlog/WatchDog-android/issues' // issue地址
+    vcsUrl = 'https://github.com/YakinBlog/WatchDog-android.git' // 项目仓库地址
+    labels = ['watchdog', 'crash', 'log'] // 项目标签
+    describe = 'Watchdog for monitoring service' // 项目描述
+}
+apply from: 'https://raw.githubusercontent.com/YakinBlog/buildscript/master/publish_bintray.gradle'
+// ./gradlew -p watchdog-ui bintrayUpload
