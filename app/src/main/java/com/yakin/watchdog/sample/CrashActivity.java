@@ -3,13 +3,12 @@ package com.yakin.watchdog.sample;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.yakin.watchdog.WatchDog;
 import com.yakin.watchdog.ui.CrashPanel;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class CrashActivity extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class CrashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crash);
 
-        stackLog = findViewById(R.id.stack_log);
+        stackLog = (TextView) findViewById(R.id.stack_log);
         WatchDog.getCrashHandler().registerHandler(new CrashPanel());
     }
 

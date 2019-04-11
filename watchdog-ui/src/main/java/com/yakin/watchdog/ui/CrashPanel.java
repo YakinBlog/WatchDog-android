@@ -2,6 +2,8 @@ package com.yakin.watchdog.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.ListView;
 
@@ -14,9 +16,6 @@ import com.yakin.watchdog.ui.utils.ScreenUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class CrashPanel extends AppCompatActivity implements ICatchHandler {
 
@@ -39,7 +38,7 @@ public class CrashPanel extends AppCompatActivity implements ICatchHandler {
 
         setTitle(title);
 
-        listView = findViewById(R.id.list);
+        listView = (ListView) findViewById(R.id.list);
 
         listViewAdapter = new ListViewAdapter();
         listView.setAdapter(listViewAdapter);

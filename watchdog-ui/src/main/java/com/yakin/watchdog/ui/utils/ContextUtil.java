@@ -3,13 +3,12 @@ package com.yakin.watchdog.ui.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 
 import com.yakin.watchdog.WatchDog;
 
 import java.lang.reflect.Method;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.ContextThemeWrapper;
 
 public final class ContextUtil {
 
@@ -40,6 +39,7 @@ public final class ContextUtil {
     }
 
     /**
+     * @param context 上下文
      * @return Activity from context
      */
     public static Activity scanForActivity(Context context) {
@@ -52,6 +52,7 @@ public final class ContextUtil {
     }
 
     /**
+     * @param context 上下文
      * @return AppCompatActivity from context
      */
     public static AppCompatActivity scanAppCompatActivity(Context context) {
