@@ -2,6 +2,7 @@
 #define _com_yakin_watchdog_crash_JNIBridge_
 
 #include <zconf.h>
+#include <unistd.h>
 
 #include "global_header.h"
 #include "signal/signal_catch.h"

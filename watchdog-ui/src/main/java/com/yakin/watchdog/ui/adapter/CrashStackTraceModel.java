@@ -25,11 +25,6 @@ public class CrashStackTraceModel extends ListViewBaseModel {
     protected void handleView(ListViewBaseHolderView.ListViewBaseHolder holder) {
         CrashStackTraceHolderView.StackTraceHolder h = (CrashStackTraceHolderView.StackTraceHolder) holder;
         h.textView.setTextColor(0xffef4545);
-        if(stackTrace.startsWith("at ")) {
-            h.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, DensityUtil.dp2px(12));
-        } else {
-            h.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, DensityUtil.dp2px(16));
-        }
         if(stackTrace.startsWith("at ") && stackTrace.contains(ContextUtil.getContext().getPackageName())) {
             int index = stackTrace.indexOf("(");
             String atPackage = stackTrace.substring(0, index);
